@@ -23,15 +23,16 @@ jobs:
       - name: Install Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Accept Android licenses
+        run: yes | sdkmanager --licenses
+
       - name: Install Android packages
         run: |
           sdkmanager --install \
             "platform-tools" \
             "platforms;android-34" \
             "build-tools;34.0.0" \
-            "cmdline-tools;latest" \
-            "cmake;3.10.2.4988404" \
-            "ndk;23.2.8568313"
+            "cmdline-tools;latest"
 
       - name: Install Godot
         run: |
@@ -48,6 +49,4 @@ jobs:
           cp /tmp/godot-templates/templates/* ~/.local/share/godot/export_templates/4.4.1.stable/
 
       - name: Check project
-        run: |
-          godot --headless --editor --path . --quit
-
+        run: godot --headless --editor --path . --quit
