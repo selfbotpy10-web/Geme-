@@ -1,4 +1,4 @@
-name: Build YASER GAME APK
+name: YASER GAME Android APK
 
 on:
   workflow_dispatch:
@@ -8,17 +8,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build Android APK
-        uses: dulvui/godot-android-export@v4
-        with:
-          godot-version: 4.4.1
+      - name: Build APK
+        uses: myood/godot-ci-android-export:latest
+        run: |
+          mkdir -p build
+          godot --headless --path . --editor --quit
+          godot --headless --path . --export-debug "Android" build/YASER-GAME.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: YASER-GAME-APK
-          path: ./**/*.apk
+          path: build/YASER-GAME.apk
