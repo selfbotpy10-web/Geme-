@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YASER GAME</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:radial-gradient(circle,#25245c,#080817 75%);
+ color:white;font-family:Arial;overflow:hidden
+}
+.game{height:100dvh;max-width:430px;margin:auto;position:relative}
+header{padding:22px;display:flex;justify-content:space-between}
+.logo{color:#ffe14b;font-size:23px;font-weight:bold}
+.level{background:#29294d;padding:10px;border-radius:15px}
+.bar{margin:0 20px;height:10px;background:#444;border-radius:20px}
+.fill{height:100%;width:20%;background:#00eaff;border-radius:20px}
+.score{text-align:center;color:#ffe45c;margin:15px}
+.stage{position:absolute;top:23%;left:50%;transform:translateX(-50%);width:280px;height:420px}
+.pole{position:absolute;left:122px;top:0;width:36px;height:400px;background:linear-gradient(90deg,#333,#aaa,#333);border-radius:15px}
+.ring{
+ position:absolute;left:0;width:280px;height:65px;
+ border:18px solid;border-radius:50%;
+ box-shadow:0 0 20px currentColor,inset 0 0 12px currentColor;
+ animation:spin 7s linear infinite
+}
+.r1{top:30px;color:#ff1744}
+.r2{top:105px;color:#ff9100}
+.r3{top:180px;color:#00d9ff}
+.r4{top:255px;color:#a020f0}
+.r5{top:330px;color:#00ed81}
+.black{position:absolute;top:195px;left:0;width:48px;height:20px;background:#030303;border-radius:10px}
+.ball{
+ position:absolute;top:14%;left:50%;transform:translateX(-50%);
+ width:66px;height:66px;border-radius:50%;
+ background:radial-gradient(circle at 28% 25%,white,#fff000 35%,#ef9b00 75%,#813800);
+ box-shadow:0 0 30px #ffbf00;animation:bounce 1.5s infinite
+}
+@keyframes bounce{50%{margin-top:15px}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hint{position:absolute;bottom:100px;width:100%;text-align:center;color:#ddd}
+button{position:absolute;bottom:25px;left:8%;width:84%;padding:17px;border:0;border-radius:17px;background:linear-gradient(90deg,#772cff,#244cff);color:white;font-size:19px;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="game">
+<header><div class="logo">YASER GAME</div><div class="level">مرحله ۱ / ۵۰۰</div></header>
+<div class="bar"><div class="fill"></div></div>
+<div class="score">⭐ امتیاز: ۱۸۰</div>
+<div class="stage">
+<div class="pole"></div>
+<div class="ring r1"></div>
+<div class="ring r2"></div>
+<div class="ring r3"></div>
+<div class="ring r4"></div>
+<div class="ring r5"></div>
+<div class="black"></div>
+</div>
+<div class="ball"></div>
+<div class="hint">YASER GAME • برای شروع لمس کن</div>
+<button onclick="alert('پیش‌نمایش گرافیکی YASER GAME')">شروع بازی</button>
+</div>
+</body>
+</html>
